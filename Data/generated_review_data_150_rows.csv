@@ -1,0 +1,151 @@
+Review_ID,Rating,Comment,Menu_ID,User_ID
+1,2,Will definitely come back!,48,496
+2,2,Loved the ambiance!,5,500
+3,5,Quite disappointing.,47,76
+4,3,Average experience.,21,379
+5,3,Not worth the price.,45,137
+6,4,One of the best meals I've had.,1,189
+7,2,Average experience.,36,391
+8,1,Will definitely come back!,45,362
+9,2,Very tasty and well-presented.,6,461
+10,4,Very tasty and well-presented.,43,365
+11,1,Quite disappointing.,43,284
+12,2,Average experience.,14,177
+13,2,Will definitely come back!,32,26
+14,4,Very tasty and well-presented.,36,179
+15,5,Will definitely come back!,30,33
+16,2,Average experience.,13,213
+17,4,Excellent food and service!,35,300
+18,1,Quite disappointing.,47,341
+19,2,Not worth the price.,27,440
+20,4,Could be better.,16,247
+21,4,Average experience.,33,291
+22,4,One of the best meals I've had.,10,417
+23,4,Excellent food and service!,33,164
+24,4,Excellent food and service!,43,332
+25,1,Will definitely come back!,28,160
+26,1,Not worth the price.,21,246
+27,3,Quite disappointing.,30,235
+28,2,Average experience.,4,70
+29,3,"Good, but not exceptional.",12,88
+30,5,"Good, but not exceptional.",19,347
+31,4,"Good, but not exceptional.",12,395
+32,1,Average experience.,10,250
+33,1,Quite disappointing.,22,262
+34,1,Will definitely come back!,32,355
+35,4,Could be better.,45,263
+36,5,Very tasty and well-presented.,2,165
+37,3,Loved the ambiance!,15,486
+38,4,Average experience.,27,7
+39,2,One of the best meals I've had.,38,428
+40,1,Quite disappointing.,11,66
+41,4,Very tasty and well-presented.,44,112
+42,3,Will definitely come back!,44,364
+43,5,Excellent food and service!,12,393
+44,1,Loved the ambiance!,12,263
+45,2,Excellent food and service!,12,274
+46,1,One of the best meals I've had.,20,6
+47,2,Quite disappointing.,31,111
+48,1,"Good, but not exceptional.",22,361
+49,3,Loved the ambiance!,12,50
+50,2,Average experience.,47,145
+51,4,One of the best meals I've had.,49,142
+52,2,Loved the ambiance!,18,329
+53,5,Average experience.,12,465
+54,2,One of the best meals I've had.,11,172
+55,1,Will definitely come back!,12,309
+56,5,One of the best meals I've had.,3,470
+57,2,Quite disappointing.,24,334
+58,5,"Good, but not exceptional.",36,284
+59,3,Will definitely come back!,19,61
+60,2,Very tasty and well-presented.,5,144
+61,4,One of the best meals I've had.,46,156
+62,4,One of the best meals I've had.,14,430
+63,1,Not worth the price.,17,24
+64,2,Excellent food and service!,39,23
+65,2,Could be better.,15,362
+66,1,Will definitely come back!,7,374
+67,2,Very tasty and well-presented.,35,492
+68,5,Not worth the price.,20,413
+69,1,Loved the ambiance!,7,49
+70,1,Will definitely come back!,31,217
+71,1,Loved the ambiance!,10,194
+72,3,Will definitely come back!,21,314
+73,4,Will definitely come back!,8,47
+74,4,Could be better.,32,79
+75,2,Average experience.,42,18
+76,4,Will definitely come back!,15,339
+77,3,Average experience.,9,235
+78,5,Will definitely come back!,24,459
+79,1,Not worth the price.,1,120
+80,1,One of the best meals I've had.,33,361
+81,2,Quite disappointing.,11,293
+82,3,Will definitely come back!,12,294
+83,2,Very tasty and well-presented.,33,295
+84,5,Very tasty and well-presented.,39,444
+85,1,"Good, but not exceptional.",30,461
+86,1,Could be better.,30,218
+87,1,Excellent food and service!,44,287
+88,3,Could be better.,36,167
+89,3,Could be better.,46,81
+90,3,Average experience.,32,109
+91,2,Could be better.,2,100
+92,4,Could be better.,30,264
+93,4,"Good, but not exceptional.",3,139
+94,4,Loved the ambiance!,12,123
+95,2,Excellent food and service!,31,40
+96,1,Not worth the price.,14,226
+97,5,Excellent food and service!,9,266
+98,1,Very tasty and well-presented.,34,408
+99,2,Excellent food and service!,35,184
+100,4,"Good, but not exceptional.",37,342
+101,5,Quite disappointing.,14,311
+102,2,Excellent food and service!,45,123
+103,5,Very tasty and well-presented.,4,500
+104,2,Quite disappointing.,25,428
+105,4,Could be better.,50,355
+106,2,Very tasty and well-presented.,27,404
+107,4,Not worth the price.,16,483
+108,2,Could be better.,3,28
+109,4,Average experience.,13,57
+110,2,"Good, but not exceptional.",33,478
+111,5,Very tasty and well-presented.,35,334
+112,4,Not worth the price.,44,218
+113,1,Loved the ambiance!,37,196
+114,5,Will definitely come back!,36,457
+115,5,Average experience.,13,412
+116,3,Could be better.,10,353
+117,1,Loved the ambiance!,24,75
+118,3,Very tasty and well-presented.,34,296
+119,4,Average experience.,46,73
+120,1,Very tasty and well-presented.,16,188
+121,1,Loved the ambiance!,48,236
+122,3,Not worth the price.,31,438
+123,4,Could be better.,16,206
+124,3,Not worth the price.,37,302
+125,4,One of the best meals I've had.,37,336
+126,2,Loved the ambiance!,41,86
+127,3,Will definitely come back!,38,108
+128,4,"Good, but not exceptional.",50,269
+129,3,Quite disappointing.,50,142
+130,5,Excellent food and service!,45,246
+131,1,Loved the ambiance!,40,296
+132,1,Very tasty and well-presented.,10,500
+133,5,Loved the ambiance!,21,209
+134,5,Excellent food and service!,45,497
+135,4,Very tasty and well-presented.,33,235
+136,1,Excellent food and service!,39,395
+137,2,Excellent food and service!,29,246
+138,1,Not worth the price.,10,320
+139,1,Not worth the price.,36,79
+140,3,Loved the ambiance!,23,38
+141,4,Quite disappointing.,8,71
+142,1,Quite disappointing.,26,306
+143,1,One of the best meals I've had.,8,309
+144,1,Not worth the price.,7,328
+145,3,Will definitely come back!,20,301
+146,5,Will definitely come back!,38,174
+147,4,Could be better.,1,434
+148,3,Loved the ambiance!,44,435
+149,4,Will definitely come back!,22,262
+150,2,Could be better.,35,27

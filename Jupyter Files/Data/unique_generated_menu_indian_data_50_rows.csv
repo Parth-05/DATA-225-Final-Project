@@ -1,0 +1,51 @@
+Menu_ID,Category,Item_Name,Price
+1,Appetizer,Samosas,4.99
+2,Appetizer,Pakoras (vegetable fritters),5.99
+3,Appetizer,Aloo Tikki (potato patties),4.49
+4,Appetizer,"Chaat (varieties like papdi chaat, bhel puri)",6.99
+5,Appetizer,Paneer Tikka,8.99
+6,Appetizer,Vegetable Spring Rolls,5.49
+7,Appetizer,Dahi Puri,6.99
+8,Appetizer,Chicken 65,9.99
+9,Appetizer,Pani Puri,5.99
+10,Appetizer,Hara Bhara Kebab (spinach and green peas kebabs),7.49
+11,Appetizer,Fish Amritsari,10.99
+12,Appetizer,Batata Vada,4.99
+13,Appetizer,Vegetable Manchurian,7.99
+14,Appetizer,Kalmi Kebab (chicken drumstick kebabs),11.99
+15,Appetizer,Stuffed Paneer Tikka,9.99
+16,Appetizer,Chicken Seekh Kebab,10.99
+17,Appetizer,Mushroom Tikka,8.99
+18,Appetizer,Achari Paneer Tikka,9.99
+19,Appetizer,Chana Chaat,6.99
+20,Appetizer,Corn Kebabs,7.49
+21,Main Course,Butter Chicken,13.99
+22,Main Course,Rogan Josh,14.99
+23,Main Course,Chicken Tikka Masala,12.99
+24,Main Course,Palak Paneer,11.99
+25,Main Course,Dal Makhani,10.99
+26,Main Course,Aloo Gobi,9.99
+27,Main Course,Baingan Bharta,11.99
+28,Main Course,Chicken Curry,13.99
+29,Main Course,Rajma (kidney beans curry),10.99
+30,Main Course,Chicken Biryani,14.99
+31,Main Course,Vegetable Biryani,12.99
+32,Main Course,Lamb Korma,15.99
+33,Main Course,Shahi Paneer,12.99
+34,Main Course,Malai Kofta,13.99
+35,Main Course,Methi Chicken,14.99
+36,Main Course,Bhindi Masala,10.99
+37,Main Course,Prawn Curry,16.99
+38,Main Course,Chicken Saagwala,13.99
+39,Main Course,Chole (chickpea curry),9.99
+40,Main Course,Egg Curry,12.99
+41,Dessert,Gulab Jamun,4.99
+42,Dessert,Rasgulla,5.99
+43,Dessert,Kheer,4.99
+44,Dessert,Jalebi,6.99
+45,Dessert,Gajar Ka Halwa (carrot halwa),7.99
+46,Dessert,Kulfi,5.99
+47,Dessert,Falooda,6.99
+48,Dessert,Rasmalai,5.99
+49,Dessert,Shahi Tukda,6.99
+50,Dessert,Malpua,5.99

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1091</width>
+    <height>779</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="userNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>170</y>
+     <width>431</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Hi Name of User</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="updateProfileBtn">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>290</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Update Profile</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="menuButton">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>290</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Menu</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="reservationBtn">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>290</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Reserve a Table</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="orderHistoryBtn">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>290</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Order History</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showAllUsersBtn">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>400</y>
+     <width>161</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Users</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dashboardBtn">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>400</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Dashboard</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="allReservationsBtn">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>400</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View All Reservations</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="allOrdersBtn">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>400</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View All Orders</string>
+   </property>
+  </widget>
+  <zorder>userNameLabel</zorder>
+  <zorder>updateProfileBtn</zorder>
+  <zorder>menuButton</zorder>
+  <zorder>reservationBtn</zorder>
+  <zorder>orderHistoryBtn</zorder>
+  <zorder>showAllUsersBtn</zorder>
+  <zorder>dashboardBtn</zorder>
+  <zorder>allOrdersBtn</zorder>
+  <zorder>allReservationsBtn</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
