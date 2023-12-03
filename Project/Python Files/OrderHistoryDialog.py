@@ -9,6 +9,7 @@ from UpdateProfileDailog import UpdateProfileDialog
 from MenuDialog import MenuDialog
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
+from AddReviewDialog import AddReviewDialog
 
 class OrderHistoryDialog(QDialog):
     '''
@@ -54,13 +55,23 @@ class OrderHistoryDialog(QDialog):
         self.ui.orderHistoryTable.verticalHeader().setVisible(False)
         self.ui.orderHistoryTable.setHorizontalHeaderLabels(col)
 
+        # add review button
+        self.ui.addReviewBtn.clicked.connect(self._add_review_)
+
         # Populate menu table
         self.populate_order_history_table()
+
+    def _add_review_(self):
+        selectedOrder = self.ui.orderHistoryTable.selectionModel().selectedRows()
+        row_index = selectedOrder[0].row()
+        values = [self.ui.orderHistoryTable.item(row_index, column).text() for column in range(self.ui.orderHistoryTable.columnCount())]
+        selected_menu_id = values[3]
+        self._add_review_dialog = AddReviewDialog()
+        self._add_review_dialog.set_menu_id(selected_menu_id)
+        self._add_review_dialog.show_dialog()
     
     def populate_order_history_table(self):
         user_id = utils.loggedInUser[4]
-        print(user_id)
-        print("Type: ", type(user_id))
         conn = make_connection(config_file = 'db_config.ini')
         cursor = conn.cursor()
 
@@ -101,7 +112,7 @@ class OrderHistoryDialog(QDialog):
 
             self._adjust_column_widths()
         except Exception as e:
-            print(print("Error fetching the order history! ", e))
+            print("Error fetching the order history! ", e)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

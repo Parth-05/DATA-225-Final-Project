@@ -7,6 +7,8 @@ import utils
 from datetime import datetime
 
 # Component Imports
+from ConfirmationMessageDialog import ConfirmationMessageDialog
+from ErrorMessageDialog import ErrorMessageDialog
 class AvailableTablesDialog(QWindow):
     """
     The main application window.
@@ -88,22 +90,20 @@ class AvailableTablesDialog(QWindow):
             conn.close()
 
     def confirm_Reservation(self):
-        selectedTable = self.ui.availableTablesTable.selectionModel().selectedRows()
-        row_index = selectedTable[0].row()
-        values = [self.ui.availableTablesTable.item(row_index, column).text() for column in range(self.ui.availableTablesTable.columnCount())]
-        self.selected_table_id = values[0]
-        print(values[0])  # This will print all the values from the selected row
-        print(self.res_date, self.res_time, self.guest_count)
-
-        # Convert the string to a datetime object
-        date_obj = datetime.strptime(self.res_date, "%Y-%m-%d")
-        self.day_of_week = (date_obj.weekday() + 1) % 7  # Monday is 0 and Sunday is 6
-        user_id = utils.loggedInUser[4]
-        
         conn = make_connection(config_file = 'db_config.ini')
         cursor = conn.cursor()
         try:
-            pass
+            selectedTable = self.ui.availableTablesTable.selectionModel().selectedRows()
+            row_index = selectedTable[0].row()
+            values = [self.ui.availableTablesTable.item(row_index, column).text() for column in range(self.ui.availableTablesTable.columnCount())]
+            self.selected_table_id = values[0]
+            print(values[0])  # This will print all the values from the selected row
+            print(self.res_date, self.res_time, self.guest_count)
+
+            # Convert the string to a datetime object
+            date_obj = datetime.strptime(self.res_date, "%Y-%m-%d")
+            self.day_of_week = (date_obj.weekday() + 1) % 7  # Monday is 1 and Sunday is 7
+            user_id = utils.loggedInUser[4]
             # Start a transaction
             conn.start_transaction()
             make_reservation_query  = """
@@ -116,10 +116,20 @@ class AvailableTablesDialog(QWindow):
             # Commit the transaction
             conn.commit()
             print("Reservation made successfully")
+            self.ui.close()
+            confirmationMessage = "Reservation made successfully."
+            self._confirmation_message_dialog_ = ConfirmationMessageDialog()
+            self._confirmation_message_dialog_.setMessageText(confirmationMessage)
+            self._confirmation_message_dialog_.show_dialog()
         except Exception as e:
             # Rollback the transaction in case of error
             conn.rollback()
             print("Error making the reservation: ", e)
+            self.ui.close()
+            errorMessage = "Error making the reservation"
+            self._error_message_dialog_ = ErrorMessageDialog()
+            self._error_message_dialog_.setErrorMessageText(errorMessage)
+            self._error_message_dialog_.show_dialog()
         finally:
             cursor.close()
             conn.close()
