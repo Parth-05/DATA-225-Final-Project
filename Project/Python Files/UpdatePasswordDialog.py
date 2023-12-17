@@ -1,12 +1,19 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView, QWidget
 from utils import make_connection
 import utils
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Components
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class UpdatePasswordDialog(QDialog):
     '''
@@ -21,6 +28,10 @@ class UpdatePasswordDialog(QDialog):
         
         # Load the dialog components.
         self.ui = uic.loadUi(r'UIFiles\UpdatePasswordDialog.ui')
+        self.ui.setWindowTitle("Update Password")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
 
         # Action to perform on click of update password button
         self.ui.updatePasswordBtn.clicked.connect(self.updated_password)

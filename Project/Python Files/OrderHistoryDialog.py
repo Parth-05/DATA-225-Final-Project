@@ -1,8 +1,9 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QDialog, QWidget, QApplication, QTableWidgetItem, QHeaderView
 from utils import make_connection
 import utils
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Component Imports
 from UpdateProfileDailog import UpdateProfileDialog
@@ -10,6 +11,12 @@ from MenuDialog import MenuDialog
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
 from AddReviewDialog import AddReviewDialog
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class OrderHistoryDialog(QDialog):
     '''
@@ -24,6 +31,10 @@ class OrderHistoryDialog(QDialog):
         
         # Load the dialog components.
         self.ui = uic.loadUi(r'UIFiles\OrderHistoryDialog.ui')
+        self.ui.setWindowTitle("Order History")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
         
          # Initialize menu table
         self._initialize_order_history_table()
@@ -79,7 +90,7 @@ class OrderHistoryDialog(QDialog):
             user_order_history_query = """
                         SELECT 
                         o.Order_ID,
-                        o.Date,
+                        DATE_FORMAT(CONCAT(o.Year, '-', o.Month, '-', o.Date), '%Y/%m/%d') AS `Order Date`,
                         o.Order_Time,
                         od.Menu_ID,
                         m.Item_Name,
@@ -95,7 +106,7 @@ class OrderHistoryDialog(QDialog):
                     WHERE 
                         o.User_ID = %s
                     ORDER BY 
-                        o.Date DESC, o.Order_Time DESC;
+                        o.Order_ID ASC, DATE_FORMAT(CONCAT(o.Year, '-', o.Month, '-', o.Date), '%Y-%m-%d') DESC, o.Order_Time DESC;
 
             """
 

@@ -4,10 +4,17 @@ from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView
 from utils import make_connection
 import utils
 import datetime
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Components
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class ViewReservationsDialog(QDialog):
     '''
@@ -23,6 +30,11 @@ class ViewReservationsDialog(QDialog):
         
         # Load the dialog components.
         self.ui = uic.loadUi(r'UIFiles\ViewReservationsDialog.ui')
+
+        self.ui.setWindowTitle("All Reservations")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
 
         self._initialize_confirm_order_table()
 
@@ -49,7 +61,7 @@ class ViewReservationsDialog(QDialog):
         self.ui.viewReservationsTable.clear()
 
         col = ['  Reservation ID ', '    User ID     ', '  Reservation Date ', '   Reservation Time   ', 
-               '   Number of Guests   ', '   Table ID   ', '   Name   ', '   Email   '
+               '   Number of Guests   ', '   Table ID   ', '   Name   ', '   Email   ',
                '   Phone   ', '   Table Location   ']
         self.ui.viewReservationsTable.setColumnCount(10)
         self.ui.viewReservationsTable.verticalHeader().setVisible(False)
@@ -108,7 +120,7 @@ class ViewReservationsDialog(QDialog):
                 WHERE r.User_ID = %s
                 ORDER BY r.Reservation_ID;
                 """
-                cursor.execute(sql, user_id)
+                cursor.execute(sql, (user_id, ))
         
             
             rows = cursor.fetchall()

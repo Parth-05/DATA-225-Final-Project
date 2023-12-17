@@ -119,9 +119,30 @@ class DashboardDialog(QDialog):
                     WHEN 12 THEN 'December'
                 END as month_name
                 FROM date_dim
-                ORDER BY month;
+                ORDER BY month_name;
 
                 """
+
+            # sql = '''
+            #         SELECT DISTINCT
+            #             month,
+            #             CASE month
+            #                 WHEN 1 THEN 'January'
+            #                 WHEN 2 THEN 'February'
+            #                 WHEN 3 THEN 'March'
+            #                 WHEN 4 THEN 'April'
+            #                 WHEN 5 THEN 'May'
+            #                 WHEN 6 THEN 'June'
+            #                 WHEN 7 THEN 'July'
+            #                 WHEN 8 THEN 'August'
+            #                 WHEN 9 THEN 'September'
+            #                 WHEN 10 THEN 'October'
+            #                 WHEN 11 THEN 'November'
+            #                 WHEN 12 THEN 'December'
+            #             END as month_name
+            #         FROM date_dim
+            #         ORDER BY month;
+            #         '''
             
             wh_cursor.execute(sql)
             rows = wh_cursor.fetchall()
@@ -217,6 +238,7 @@ class DashboardDialog(QDialog):
             """
             # Execute the query
             wh_cursor.execute(daily_sales_query, (selected_year[0], selected_month))
+            # wh_cursor.execute("CALL GetDailySales(%s, %s)", (selected_year[0], selected_month, ))
             rows = wh_cursor.fetchall()
 
             # Create DataFrame from the query result

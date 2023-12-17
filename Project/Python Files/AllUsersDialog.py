@@ -1,8 +1,9 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QDialog, QWidget, QApplication, QTableWidgetItem, QHeaderView
 from utils import make_connection
 import utils
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Component Imports
 from UpdateProfileDailog import UpdateProfileDialog
@@ -10,6 +11,12 @@ from MenuDialog import MenuDialog
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
 from OrderHistoryDialog import OrderHistoryDialog
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class AllUsersDialog(QDialog):
     '''
@@ -24,6 +31,10 @@ class AllUsersDialog(QDialog):
         
         # Load the dialog components.
         self.ui = uic.loadUi(r'UIFiles\AllUsersDialog.ui')
+        self.ui.setWindowTitle("All Users")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
 
         self._initialize_all_users_table()
 
@@ -58,7 +69,7 @@ class AllUsersDialog(QDialog):
         try:
             sql = """
                 SELECT  User_ID, Name, Email, Phone, Role
-                FROM Users;
+                FROM users;
             """
         
             cursor.execute(sql)

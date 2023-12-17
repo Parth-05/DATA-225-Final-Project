@@ -1,14 +1,23 @@
 from PyQt5 import uic
 from PyQt5.QtGui import QWindow
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView, QDateEdit
+from PyQt5.QtWidgets import QDialog, QWidget, QApplication, QTableWidgetItem, QHeaderView, QDateEdit
 from PyQt5.QtCore import QDate, QTime
 from utils import make_connection
 import utils
 from datetime import datetime
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Component Imports
 from ConfirmationMessageDialog import ConfirmationMessageDialog
 from ErrorMessageDialog import ErrorMessageDialog
+
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
+
 class AvailableTablesDialog(QWindow):
     """
     The main application window.
@@ -21,6 +30,11 @@ class AvailableTablesDialog(QWindow):
         super().__init__()
         
         self.ui = uic.loadUi('UIFiles\AvailableTablesDialog.ui')
+
+        self.ui.setWindowTitle("Available Tables")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
 
         # Initialize table
         self._initialize_confirm_order_table()

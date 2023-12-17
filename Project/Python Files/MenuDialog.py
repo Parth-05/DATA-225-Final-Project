@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView, QWidget
 from utils import make_connection
 import utils
 
@@ -8,6 +8,13 @@ import utils
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
 from ConfirmOrderDialog import ConfirmOrderDialog
+from PyQt5.QtGui import QPainter, QPixmap
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class MenuDialog(QDialog):
     '''
@@ -23,6 +30,11 @@ class MenuDialog(QDialog):
         
         # Load the dialog components.
         self.ui = uic.loadUi(r'UIFiles\Menu.ui')
+
+        self.ui.setWindowTitle("Menu")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
 
         # Initialize menu table
         self._initialize_menu_table()
@@ -105,7 +117,7 @@ class MenuDialog(QDialog):
         try:
             sql = """
                 SELECT  Menu_ID, Category, Item_Name, Price
-                FROM Menu;
+                FROM menu;
             """
         
             cursor.execute(sql)
@@ -136,13 +148,13 @@ class MenuDialog(QDialog):
         if selected_category[0] == "All":
             sql = """
                 SELECT  Menu_ID, Category, Item_Name, Price
-                FROM Menu;
+                FROM menu;
             """
             cursor.execute(sql)
         else:
             sql = """
                 SELECT  Menu_ID, Category, Item_Name, Price
-                    FROM Menu Where Category = %s
+                    FROM menu Where Category = %s
                 """
             cursor.execute(sql, (selected_category))
        

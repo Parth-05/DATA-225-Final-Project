@@ -1,14 +1,21 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QDialog, QWidget, QApplication, QTableWidgetItem, QHeaderView
 from utils import make_connection
 import utils
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Component Imports
 from UpdateProfileDailog import UpdateProfileDialog
 from MenuDialog import MenuDialog
 from ErrorMessageDialog import ErrorMessageDialog
 from ConfirmationMessageDialog import ConfirmationMessageDialog
+
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class AllOrdersDialog(QDialog):
     '''
@@ -23,6 +30,10 @@ class AllOrdersDialog(QDialog):
         
         # Load the dialog components.
         self.ui = uic.loadUi(r'UIFiles\AllOrdersDialog.ui')
+        self.ui.setWindowTitle("All Orders")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
         
          # Initialize menu table
         self._initialize_order_history_table()
@@ -59,8 +70,6 @@ class AllOrdersDialog(QDialog):
     
     def populate_order_history_table(self):
         user_id = utils.loggedInUser[4]
-        print(user_id)
-        print("Type: ", type(user_id))
         conn = make_connection(config_file = 'db_config.ini')
         cursor = conn.cursor()
 
@@ -74,7 +83,7 @@ class AllOrdersDialog(QDialog):
                         m.Item_Name,
                         od.Unit_Price,
                         od.Quantity,
-                        o.User_ID
+                        o.User_ID,
                         ROUND(od.Unit_Price * od.Quantity, 2) AS Total_Price
                     FROM 
                         orders AS o
@@ -83,7 +92,7 @@ class AllOrdersDialog(QDialog):
                     JOIN 
                         menu AS m ON od.Menu_ID = m.Menu_ID
                     ORDER BY 
-                        o.Date DESC, o.Order_Time DESC;
+                        o.Order_ID ASC, o.Date DESC, o.Order_Time DESC;
 
             """
 
@@ -100,7 +109,7 @@ class AllOrdersDialog(QDialog):
 
             self._adjust_column_widths()
         except Exception as e:
-            print(print("Error fetching the order history! ", e))
+            print("Error fetching the order history! ", e)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

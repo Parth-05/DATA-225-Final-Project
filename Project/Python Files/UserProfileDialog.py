@@ -69,13 +69,16 @@ class UserProfileDialog(QDialog):
         self.ui.dashboardBtn.clicked.connect(self.show_dashboard_dialog)
 
         # show all orders button
-        self.ui.allOrdersBtn.clicked.connect(self.show_all_users_dialog)
+        self.ui.allOrdersBtn.clicked.connect(self.show_all_orders_dialog)
 
         # show view reservations button
         self.ui.allReservationsBtn.clicked.connect(self.show_view_reservations_dialog)
 
         self._initialize_categories_menu()
         self.ui.menuCategoryFilter.currentIndexChanged.connect(self.plot_top_menu_item_visualization)
+
+        self.ui.exitBtn.clicked.connect(self.close_dialog)
+
 
 
     # Show user profile dialog
@@ -121,7 +124,7 @@ class UserProfileDialog(QDialog):
     def show_all_users_dialog(self):
         self._all_users_dialog = AllUsersDialog()
         self._all_users_dialog.show_dialog()
-        self.ui.close()
+        # self.ui.close()
 
     def show_dashboard_dialog(self):
         self._dashboard_dialog = DashboardDialog()
@@ -130,12 +133,12 @@ class UserProfileDialog(QDialog):
     def show_all_orders_dialog(self):
         self._all_orders_dialog = AllOrdersDialog()
         self._all_orders_dialog.show_dialog()
-        self.ui.close()
+        # self.ui.close()
 
     def show_view_reservations_dialog(self):
         self._view_reservations_dialog = ViewReservationsDialog()
         self._view_reservations_dialog.show_dialog()
-        self.ui.close()
+        # self.ui.close()
 
     def _initialize_categories_menu(self):
         """
@@ -242,7 +245,7 @@ class UserProfileDialog(QDialog):
                 ax.set_title('Top 3 Rated Menu Items')
             else:
                 ax.set_title('Top 3 Rated ' + selected_category[0])
-            ax.set_xlabel('Appetizer')
+            ax.set_xlabel('Menu Item')
             ax.set_ylabel('Average Rating')
             ax.set_ylim(0, 5)  # Assuming the rating is out of 5
             self.mplwidget.canvas.draw()
@@ -254,6 +257,9 @@ class UserProfileDialog(QDialog):
             wh_conn.close()
 
     # def filter_top_menu_item_visualization(self)
+
+    def close_dialog(self):
+        self.ui.close()
 
 
 if __name__ == '__main__':

@@ -1,12 +1,18 @@
 from PyQt5 import uic
 from PyQt5.QtGui import QWindow
-from PyQt5.QtWidgets import QDialog, QApplication, QTableWidgetItem, QHeaderView, QDateEdit
+from PyQt5.QtWidgets import QDialog, QWidget, QApplication, QTableWidgetItem, QHeaderView, QDateEdit
 from PyQt5.QtCore import QDate, QTime
 import utils
+from PyQt5.QtGui import QPainter, QPixmap
 
 # Component Imports
 from AvailableTablesDialog import AvailableTablesDialog
 
+class BackgroundWidget(QWidget):
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        pixmap = QPixmap(r"Project\Python Files\Images\BackgroundImage.jpg")  # Update with correct path
+        painter.drawPixmap(self.rect(), pixmap)
 
 class ReservationDialog(QWindow):
     """
@@ -20,6 +26,11 @@ class ReservationDialog(QWindow):
         super().__init__()
         
         self.ui = uic.loadUi('UIFiles\ReservationDialog.ui')
+
+        self.ui.setWindowTitle("Reservation")
+
+        self.ui.setStyleSheet("QDialog { background-image: url('Images/BackgroundImage.jpg'); }")
+        self.background_widget = BackgroundWidget()
 
         self.initialize_reservation_widgets()
 

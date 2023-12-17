@@ -38,6 +38,7 @@ class RegisterUserDialog(QDialog):
 
             conn = make_connection(config_file = 'db_config.ini')
             cursor = conn.cursor()
+            conn.start_transaction()
 
             # sql = "INSERT INTO users (Name, Email, Password, Phone, Role) VALUES (%s, %s, %s, %s, %s)"
             sql = "CALL RegisterUser(%s, %s, %s, %s, %s)"
@@ -48,6 +49,7 @@ class RegisterUserDialog(QDialog):
             self.loginMessageDialogUi.LoginMessageLabel.setText('User Created Successfully.')
             self.loginMessageDialogUi.show()
         except Exception as e:
+            conn.rollback()
             print(e)
             self.loginMessageDialogUi = uic.loadUi('UIFiles\LoginMessageDialog.ui')
             self.loginMessageDialogUi.LoginMessageLabel.setText('Error encountered while creating the user!')

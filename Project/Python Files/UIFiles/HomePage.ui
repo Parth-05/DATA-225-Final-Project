@@ -40,9 +40,9 @@
   <widget class="QPushButton" name="updateProfileBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>100</y>
-     <width>141</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -68,9 +68,9 @@
   <widget class="QPushButton" name="allReservationsBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>520</y>
-     <width>141</width>
+     <x>20</x>
+     <y>340</y>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -96,9 +96,9 @@
   <widget class="QPushButton" name="showAllUsersBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>340</y>
-     <width>141</width>
+     <x>20</x>
+     <y>520</y>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -124,9 +124,9 @@
   <widget class="QPushButton" name="orderHistoryBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>280</y>
-     <width>141</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -152,9 +152,9 @@
   <widget class="QPushButton" name="reservationBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>220</y>
-     <width>141</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -180,9 +180,9 @@
   <widget class="QPushButton" name="allOrdersBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>460</y>
-     <width>141</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -208,9 +208,9 @@
   <widget class="QPushButton" name="menuButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>160</y>
-     <width>141</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -236,9 +236,9 @@
   <widget class="QPushButton" name="dashboardBtn">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>400</y>
-     <width>141</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -261,7 +261,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="logoutBtn">
+  <widget class="QPushButton" name="exitBtn">
    <property name="geometry">
     <rect>
      <x>910</x>
@@ -276,7 +276,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Logout</string>
+    <string>Exit</string>
    </property>
    <property name="icon">
     <iconset>

@@ -70,7 +70,7 @@
   <widget class="QPushButton" name="placeOrderBtn">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>360</x>
      <y>520</y>
      <width>171</width>
      <height>41</height>
@@ -85,30 +85,12 @@
     <string>Place Order</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="backBtn">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>520</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Back</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="incQtyBtn">
    <property name="geometry">
     <rect>
-     <x>680</x>
+     <x>670</x>
      <y>450</y>
-     <width>101</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
@@ -119,9 +101,9 @@
   <widget class="QPushButton" name="decQtyBtn">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>520</x>
      <y>450</y>
-     <width>131</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
@@ -132,7 +114,7 @@
   <widget class="QPushButton" name="removeItemsBtn">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>140</x>
      <y>450</y>
      <width>161</width>
      <height>31</height>
